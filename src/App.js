@@ -1,7 +1,8 @@
 import './App.css';
-import {Header} from "./Components/Header";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {PhotoContainer} from "./Components/PhotoContainer";
+import {Home} from "./Components/Home";
+import {Header} from "./Components/Header";
 import {PageNotFound} from "./Components/PageNotFound";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
           <div className="container">
               <Header/>
               <Switch>
-                <Route exact path="/" render={()=><h1>Search for some photos!</h1>}/>
+                <Route exact path="/" component={Home}/>
                 <Route path ="/cats" component={PhotoContainer}/>
                 <Route component={PageNotFound}/>
               </Switch>
