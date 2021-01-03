@@ -4,7 +4,7 @@ export const Home = () => {
     return(
         <div>
             <h1>Welcome to the React Gallery App!</h1>
-            <p>To get started, click on a search button above, or perform your own search!</p>
+            <p>Search for pictures using the search bar, or pick one from above!</p>
         </div>
 
     )

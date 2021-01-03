@@ -29,7 +29,7 @@ export class PhotoList extends React.Component {
             loading: true
         })
         let strippedQuery = query.replaceAll(" ","+");
-        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=4&page=1&format=json&nojsoncallback=1`;
+        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=16&page=1&format=json&nojsoncallback=1`;
         axios.get(searchString)
             .then(response => {
                 this.setState({
@@ -56,7 +56,7 @@ export class PhotoList extends React.Component {
         }
         return (
             <div className="photo-container">
-                <h2>Results tagged: "{this.props.match.params.query}"</h2>
+                <h2>Flickr Photos tagged: "{this.props.match.params.query}"</h2>
 
                 {this.state.loading ? <h1>Loading...</h1> : <ul>{photoData}</ul> }
             </div>

@@ -8,6 +8,8 @@ export const MainNav = () => {
                 <li><NavLink to='/search/cats'>Cats</NavLink></li>
                 <li><NavLink to='/search/dogs'>Dogs</NavLink></li>
                 <li><NavLink to='/search/rabbits'>Rabbits</NavLink></li>
+                <li><NavLink to='/search/turtles'>Turtles</NavLink></li>
+                <li><NavLink to='/search/elephants'>Elephants</NavLink></li>
             </ul>
         </nav>
     )
