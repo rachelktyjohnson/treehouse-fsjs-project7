@@ -20,12 +20,11 @@ export class PhotoList extends React.Component {
 
         return (
             <div className="photo-container">
-                {console.log(this.props.loading)}
                 {this.props.loading
                     ?
                     <h1>Loading...</h1>
                     :
-                    <h2>Results tagged: {query}</h2> }
+                    <h2>Results tagged: "{query}"</h2> }
                 <ul>
                     {photosData}
                 </ul>

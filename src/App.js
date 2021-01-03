@@ -26,7 +26,7 @@ class App extends React.Component {
 
     handleSearch( query ){
         let strippedQuery = query.replaceAll(" ","+");
-        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=24&page=1&format=json&nojsoncallback=1`;
+        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=4&page=1&format=json&nojsoncallback=1`;
         axios.get(searchString)
             .then(response => {
                 if (query==='cats'){

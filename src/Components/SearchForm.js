@@ -1,10 +1,17 @@
 import React from 'react';
 
 export class SearchForm extends React.Component {
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.query.value);
+        e.currentTarget.reset();
+    }
+
     render() {
         return (
-            <form className="search-form">
-                <input type="search" name="search" placeholder="Search" required/>
+            <form className="search-form" onSubmit={this.handleSubmit}>
+                <input type="search" name="search" placeholder="Search" required ref={(input)=>{this.query = input}}/>
                 <button type="submit" className="search-button">
                     <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
                         <path
