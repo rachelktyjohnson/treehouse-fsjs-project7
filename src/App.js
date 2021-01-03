@@ -4,7 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Home} from "./Components/Home";
 import {Header} from "./Components/Header";
 import {PageNotFound} from "./Components/PageNotFound";
-import {PhotoList} from "./Components/PhotoList";
+import {PhotoLogic} from "./Components/PhotoLogic";
 
 class App extends React.Component {
     render() {
@@ -14,7 +14,7 @@ class App extends React.Component {
                     <Header/>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path="/search/:query" component={PhotoList}/>
+                        <Route path="/search/:query" component={PhotoLogic}/>
                         <Route component={PageNotFound}/>
                     </Switch>
 
