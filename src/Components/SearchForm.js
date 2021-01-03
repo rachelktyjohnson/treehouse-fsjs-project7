@@ -4,7 +4,8 @@ export class SearchForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.query.value);
+        let query = this.query.value.replaceAll(" ","+");
+        console.log(query);
         e.currentTarget.reset();
     }
 

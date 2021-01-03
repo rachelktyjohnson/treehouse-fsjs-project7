@@ -7,6 +7,7 @@ import {PageNotFound} from "./Components/PageNotFound";
 import apiKey from "./config";
 import axios from 'axios';
 import {PhotoList} from "./Components/PhotoList";
+import {SearchList} from "./Components/SearchList";
 
 class App extends React.Component {
 
@@ -59,7 +60,7 @@ class App extends React.Component {
                         <Route exact path="/cats" render={()=><PhotoList photos={this.state.cats} query="cats" loading={this.state.loading}/>}/>
                         <Route exact path="/dogs" render={()=><PhotoList photos={this.state.dogs} query="dogs" loading={this.state.loading}/>}/>
                         <Route exact path="/rabbits" render={()=><PhotoList photos={this.state.rabbits} query="rabbits" loading={this.state.loading}/>}/>
-                        {/*<Route path="/:query" component={PhotoList}/>*/}
+                        <Route path="/search/:query" component={SearchList}/>
                         <Route component={PageNotFound}/>
                     </Switch>
 

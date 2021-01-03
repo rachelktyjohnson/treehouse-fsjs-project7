@@ -24,7 +24,7 @@ export class PhotoList extends React.Component {
                     ?
                     <h1>Loading...</h1>
                     :
-                    <h2>Results tagged: "{query}"</h2> }
+                    <h2>{query}</h2> }
                 <ul>
                     {photosData}
                 </ul>
