@@ -1,12 +1,14 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
-export class SearchForm extends React.Component {
+class SearchForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let query = this.query.value.replaceAll(" ","+");
-        console.log(query);
+        let strippedQuery = this.query.value.replaceAll(" ", "+");
+        let path = `/search/${strippedQuery}`;
         e.currentTarget.reset();
+        this.props.history.push(path);
     }
 
     render() {
@@ -24,3 +26,5 @@ export class SearchForm extends React.Component {
         )
     }
 }
+
+export default withRouter(SearchForm);

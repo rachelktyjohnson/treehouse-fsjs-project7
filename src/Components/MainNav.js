@@ -5,9 +5,9 @@ export const MainNav = () => {
     return (
         <nav className="main-nav">
             <ul>
-                <li><NavLink to='/cats'>Cats</NavLink></li>
-                <li><NavLink to='/dogs'>Dogs</NavLink></li>
-                <li><NavLink to='/rabbits'>Rabbits</NavLink></li>
+                <li><NavLink to='/search/cats'>Cats</NavLink></li>
+                <li><NavLink to='/search/dogs'>Dogs</NavLink></li>
+                <li><NavLink to='/search/rabbits'>Rabbits</NavLink></li>
             </ul>
         </nav>
     )
