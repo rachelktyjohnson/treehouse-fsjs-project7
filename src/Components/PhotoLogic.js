@@ -32,6 +32,7 @@ export class PhotoLogic extends React.Component {
         axios.get(searchString)
             .then(response => {
                 this.setState({
+                    query: query,
                     photos: response.data.photos.photo,
                     loading:false
                 })
