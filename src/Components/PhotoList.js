@@ -19,7 +19,7 @@ export class PhotoList extends React.Component {
         }
         return (
             <div className="photo-container">
-                <h2>Flickr Photos tagged: "{this.props.query}"</h2>
+                <h2>Photos tagged: "{this.props.query}"</h2>
 
                 {this.props.loading ? <h1>Loading...</h1> : <ul>{photoData}</ul>}
             </div>
