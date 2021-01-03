@@ -29,7 +29,6 @@ export class PhotoLogic extends React.Component {
         })
         let searchQuery = query.replaceAll("+","%2C");
         let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=16&page=1&format=json&nojsoncallback=1`;
-        console.log(searchString);
         axios.get(searchString)
             .then(response => {
                 this.setState({
