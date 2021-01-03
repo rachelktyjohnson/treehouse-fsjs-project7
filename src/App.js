@@ -16,16 +16,16 @@ class App extends React.Component {
         this.state = {
             loading: true
         }
-        this.handleSearch = this.handleSearch.bind(this);
+        this.handleButtons = this.handleButtons.bind(this);
     }
 
     componentDidMount() {
-        this.handleSearch('cats');
-        this.handleSearch('dogs');
-        this.handleSearch('rabbits');
+        this.handleButtons('cats');
+        this.handleButtons('dogs');
+        this.handleButtons('rabbits');
     }
 
-    handleSearch( query ){
+    handleButtons( query ){
         let strippedQuery = query.replaceAll(" ","+");
         let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=4&page=1&format=json&nojsoncallback=1`;
         axios.get(searchString)
