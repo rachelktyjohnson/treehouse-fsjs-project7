@@ -13,10 +13,6 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            photos: [],
-            cats: [],
-            dogs: [],
-            fish: [],
             loading: true
         }
         this.handleSearch = this.handleSearch.bind(this);
@@ -25,36 +21,30 @@ class App extends React.Component {
     componentDidMount() {
         this.handleSearch('cats');
         this.handleSearch('dogs');
-        this.handleSearch('fish');
+        this.handleSearch('rabbits');
     }
 
     handleSearch( query ){
         let strippedQuery = query.replaceAll(" ","+");
-        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&privacy_filter=1&safe_search=1&is_getty=true&per_page=3&page=1&format=json&nojsoncallback=1`;
+        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${strippedQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=24&page=1&format=json&nojsoncallback=1`;
         axios.get(searchString)
             .then(response => {
                 if (query==='cats'){
                     this.setState({
-                        cats: response.data.photos.photo,
-                        loading: false
+                        cats: response.data.photos.photo
                     })
                 } else if (query==='dogs'){
                     this.setState({
-                        dogs: response.data.photos.photo,
-                        loading: false
+                        dogs: response.data.photos.photo
                     })
-                } else if (query==='fish'){
+                } else if (query==='rabbits'){
                     this.setState({
-                        fish: response.data.photos.photo,
-                        loading: false
-                    })
-                } else {
-                    this.setState({
-                        photos: response.data.photos.photo,
-                        loading: false
+                        rabbits: response.data.photos.photo
                     })
                 }
-
+                this.setState({
+                    loading: false
+                })
             })
             .catch(error => console.log('Error: ' + error));
     }
@@ -66,9 +56,10 @@ class App extends React.Component {
                     <Header/>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path="/cats" render={()=><PhotoList photos={this.state.cats} query="cats"/>}/>
-                        <Route path="/dogs" render={()=><PhotoList photos={this.state.dogs} query="dogs"/>}/>
-                        <Route path="/fish" render={()=><PhotoList photos={this.state.fish} query="fish"/>}/>
+                        <Route exact path="/cats" render={()=><PhotoList photos={this.state.cats} query="cats" loading={this.state.loading}/>}/>
+                        <Route exact path="/dogs" render={()=><PhotoList photos={this.state.dogs} query="dogs" loading={this.state.loading}/>}/>
+                        <Route exact path="/rabbits" render={()=><PhotoList photos={this.state.rabbits} query="rabbits" loading={this.state.loading}/>}/>
+                        {/*<Route path="/:query" component={PhotoList}/>*/}
                         <Route component={PageNotFound}/>
                     </Switch>
 

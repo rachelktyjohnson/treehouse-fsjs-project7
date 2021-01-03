@@ -3,21 +3,29 @@ import {Photo} from "./Photo";
 
 export class PhotoList extends React.Component {
 
-
-
     render() {
+        let photosData;
+        let query;
+        if (this.props.query && this.props.photos){
+            query = this.props.query;
+            photosData = this.props.photos.map(photo =>
+                <Photo
+                    key={photo.id}
+                    server={photo.server}
+                    id={photo.id}
+                    secret={photo.secret}
+                />
+            )
+        }
 
-        let photosData = this.props.photos.map(photo =>
-            <Photo
-                key={photo.id}
-                server={photo.server}
-                id={photo.id}
-                secret={photo.secret}
-            />
-        )
         return (
             <div className="photo-container">
-                <h2>Results tagged: {this.props.query}</h2>
+                {console.log(this.props.loading)}
+                {this.props.loading
+                    ?
+                    <h1>Loading...</h1>
+                    :
+                    <h2>Results tagged: {query}</h2> }
                 <ul>
                     {photosData}
                 </ul>

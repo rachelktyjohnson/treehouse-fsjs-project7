@@ -7,7 +7,7 @@ export const MainNav = () => {
             <ul>
                 <li><NavLink to='/cats'>Cats</NavLink></li>
                 <li><NavLink to='/dogs'>Dogs</NavLink></li>
-                <li><NavLink to='/fish'>Fish</NavLink></li>
+                <li><NavLink to='/rabbits'>Rabbits</NavLink></li>
             </ul>
         </nav>
     )
