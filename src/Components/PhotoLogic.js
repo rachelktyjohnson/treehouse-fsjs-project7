@@ -43,6 +43,7 @@ export class PhotoLogic extends React.Component {
 
     render() {
         return (
+
             <PhotoList
                 query={this.state.query}
                 photos={this.state.photos}
