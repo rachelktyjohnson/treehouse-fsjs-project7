@@ -27,12 +27,11 @@ export class PhotoLogic extends React.Component {
         this.setState({
             loading: true
         })
-        let searchQuery = query.replaceAll("+","%2C");
-        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchQuery}&content_type=1&privacy_filter=1&safe_search=1&is_getty=true&per_page=16&page=1&format=json&nojsoncallback=1`;
+        let searchString = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&content_type=1&privacy_filter=1&safe_search=1&per_page=16&page=1&format=json&nojsoncallback=1`;
         axios.get(searchString)
             .then(response => {
                 this.setState({
-                    query: query.replaceAll("+", " "),
+                    query: query,
                     photos: response.data.photos.photo,
                     loading:false
                 })

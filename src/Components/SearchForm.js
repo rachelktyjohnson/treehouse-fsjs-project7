@@ -5,8 +5,7 @@ class SearchForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let strippedQuery = this.query.value.replaceAll(" ", "+");
-        let path = `/search/${strippedQuery}`;
+        let path = `/search/${this.query.value}`;
         e.currentTarget.reset();
         this.props.history.push(path);
     }
